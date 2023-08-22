@@ -12,8 +12,6 @@ body {
     padding: 0;
 }
 
-
-/* Burger-Menü */
 .burger-menu {
     display: flex;
     flex-direction: column;
@@ -45,7 +43,6 @@ body {
     font-size: 24px;
 }
 
-/* Navbar-Stil */
 .navbar {
     background-color: #192734;
     overflow: hidden;
@@ -100,6 +97,10 @@ body {
     justify-content: center;
     margin: 10px;
     font-size: x-small;
+}
+
+.desc-container a {
+    text-decoration: none;
 }
 
 @media screen and (max-width: 600px) {
