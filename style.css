@@ -12,6 +12,8 @@ body {
     padding: 0;
 }
 
+
+/* Burger-Menü */
 .burger-menu {
     display: flex;
     flex-direction: column;
@@ -28,7 +30,7 @@ body {
     background-color: #333;
 }
 
-
+/* Header-Stil */
 .header {
     background-color: #15202b;
     text-align: left;
@@ -43,6 +45,7 @@ body {
     font-size: 24px;
 }
 
+/* Navbar-Stil */
 .navbar {
     background-color: #192734;
     overflow: hidden;
@@ -100,15 +103,15 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-   
+    /* Header-Stil für mobile Ansicht */
     .header h1 {
         font-size: 20px;
     }
 
-   
+    /* Navbar-Stil für mobile Ansicht */
     .navbar a {
         float: none;
         display: block;
         text-align: left;
-}
+    }
 }
