@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     fetch('udb.json')
         .then(response => response.json())
@@ -7,6 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
+
+            // Definieren Sie das benutzerdefinierte Icon
+            var CustomIcon = L.Icon.extend({
+                options: {
+                    iconUrl: 'pin-green_2.png', // Pfad zu Ihrem Icon
+                    iconSize: [65, 65], // Größe des Icons
+                    iconAnchor: [22, 94], // Punkt des Icons, der der Position des Markers entspricht
+                    popupAnchor: [-3, -76] // Punkt, von dem aus das Popup relativ zum iconAnchor geöffnet werden soll
+                }
+            });
+
+            var myIcon = new CustomIcon();
 
             const years = [...new Set(data.Hatch_UDB_Timeline.map(item => item.date.split('/')[2]))];
             const select = document.getElementById('yearSelect');
@@ -29,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     .forEach(point => {
                         const [lat, lon] = point.key_vals.LatLong.split(' ').map(parseFloat);
                         if (!isNaN(lat) && !isNaN(lon)) {
-                            const marker = L.marker([lat, lon]).addTo(map);
+                            // Verwenden Sie das benutzerdefinierte Icon beim Erstellen des Markers
+                            const marker = L.marker([lat, lon], {icon: myIcon}).addTo(map);
                             marker.bindPopup(`
-                                 
                                 <b>Date:</b> ${point.date}<br>
                                 <b>Country:</b> ${point.key_vals.Country}<br>
                                 <b>State/Province:</b> ${point.key_vals["State/Prov"]}<br>
