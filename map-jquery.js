@@ -104,7 +104,8 @@ function loadPoints() {
                             <b>Credibility:</b> ${point.key_vals.Credibility}<br>
                             <b>Duration:</b> ${point.key_vals.Duration}<br>
                             <b>Strangeness:</b> ${point.key_vals.Strangeness}<br>
-                            <b>Type:</b> ${point.type}
+                            <b>Type:</b> ${point.type}<br>
+                            <b>Ref:</b> ${point.ref}
                         `);
 
         });
