@@ -18,13 +18,12 @@ $(document).ready(function () {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Definieren Sie das benutzerdefinierte Icon
         var customIcon = L.Icon.extend({
             options: {
-                iconUrl: 'pin-green_2.png', // Pfad zu Ihrem Icon
-                iconSize: [65, 65], // Größe des Icons
-                iconAnchor: [22, 94], // Punkt des Icons, der der Position des Markers entspricht
-                popupAnchor: [-3, -76] // Punkt, von dem aus das Popup relativ zum iconAnchor geöffnet werden soll
+                iconUrl: 'pin-green_2.png',
+                iconSize: [65, 65], 
+                iconAnchor: [22, 94], 
+                popupAnchor: [-3, -76] 
             }
         });
 
@@ -93,7 +92,6 @@ function loadPoints() {
         .forEach(point => {
             const [lat, lon] = point.key_vals.LatLong.split(' ').map(parseFloat);
 
-            // Verwenden Sie das benutzerdefinierte Icon beim Erstellen des Markers
             const marker = L.marker([lat, lon], { icon: myIcon }).addTo(map);
             marker.bindPopup(`
                             <b>Date:</b> ${point.date}<br>
